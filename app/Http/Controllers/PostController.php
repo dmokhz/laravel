@@ -51,7 +51,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('posts.show', ['post' => $post]);
     }
 
     /**
@@ -62,7 +62,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('posts.edit', ['post' => $post]);
     }
 
     /**
@@ -74,7 +74,9 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $post->content = $request->input('content');
+        $post->save();
+        return redirect(route('home', ['post' => $post]));
     }
 
     /**
@@ -85,6 +87,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+      $post->delete();
+      return redirect(route('posts.index'));
     }
 }
