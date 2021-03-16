@@ -27,7 +27,7 @@
           <div class="blog-post">
             <h2 class="blog-post-title">{{$post->title}}</h2>
             <p class="blog-post-meta">{{$post->updated_at}} by <a href="#">{{Auth::user()->name}}</a></p>
-            <p>{{$post->content}}</p>
+            <p>{!!nl2br(e($post->content))!!}</p>
             </div>
             <hr>
           @endforeach
