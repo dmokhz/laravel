@@ -23,6 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home',['posts' => Post::cursor()]);
+        return redirect(route('posts.index',['posts' => Post::cursor()]));
     }
 }

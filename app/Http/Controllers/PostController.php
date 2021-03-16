@@ -14,7 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('home', ['posts' => Post::cursor()]);
+        return view('posts.index', ['posts' => Post::cursor()]);
     }
 
     /**
@@ -40,7 +40,7 @@ class PostController extends Controller
       $post->title = $request->input('title');
       $post->content = $request->input('content');
       $post->save();
-      return redirect(route('home', ['posts' => Post::cursor()]));
+      return redirect(route('posts.index', ['posts' => Post::cursor()]));
     }
 
     /**
@@ -76,7 +76,7 @@ class PostController extends Controller
     {
         $post->content = $request->input('content');
         $post->save();
-        return redirect(route('home', ['post' => $post]));
+        return redirect(route('posts.index'));
     }
 
     /**
