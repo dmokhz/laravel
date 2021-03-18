@@ -17,18 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/homepage', function () {
-    return 'Hello world!';
-});
-
-Route::get('/test',function() {
-  return Post::all();
-});
-
-Route::get('/app',function(){
-  return view('app');
+Route::get('/blog',function(){
+  return view('auth.login');
 });
 
 Auth::routes();
-Route::resource('posts', 'App\Http\Controllers\PostController');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('posts', 'App\Http\Controllers\PostController')->middleware('auth');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

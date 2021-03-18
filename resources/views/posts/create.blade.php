@@ -16,7 +16,7 @@
         <div class="col-sm-2 blog-sidebar">
           <div class="sidebar-module">
             <ul class="list-group">
-              <a href="{{ route('home') }}" class="list-group-item">首頁</a>
+              <a href="{{ route('posts.index') }}" class="list-group-item">首頁</a>
               <a href="{{route('posts.create')}}" class="list-group-item list-group-item-action active bg-warning">發表文章</a>
             </ul>
           </div>
